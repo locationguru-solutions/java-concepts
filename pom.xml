@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.locationguru.learning</groupId>
+	<artifactId>java-concepts</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<!-- This module will be packaged as POM -->
+	<packaging>pom</packaging>
+
+	<name>Java Concepts</name>
+	<description>Learning basic and advance Java concepts</description>
+
+	<!-- Project modules -->
+	<modules>
+		<!--<module>web-api</module>-->
+		<module>learning-basics</module>
+	</modules>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<!-- Configures Maven resource filtering plugin -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>log4j2.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<!-- Configures Maven compiler plugin for Java -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+
+			<!-- Configures maven failsafe plugin for integration testing -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Project properties -->
+	<properties>
+
+		<!-- Logging -->
+		<log4j.version>2.11.2</log4j.version>
+		<lmax.version>3.4.2</lmax.version>
+		<slf4j.version>1.7.26</slf4j.version>
+
+		<!-- Testing -->
+		<junit.jupiter.version>5.4.2</junit.jupiter.version>
+
+		<!-- Compiler -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<java.version>12</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<scala.version>2.13.0</scala.version>
+
+	</properties>
+
+	<!-- Managed dependencies -->
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
