@@ -41,7 +41,7 @@ public class StreamsExample
 
 		final Map<Long, List<String>> result = content.lines()
 													  .flatMap(s -> Arrays.stream(s.split(" ")))
-													  // .map(s -> s.replaceAll("^[A-Za-z]", ""))
+													  .map(s -> s.replaceAll("[^A-Za-z]", ""))
 													  .map(String::strip)
 													  .filter(Predicate.not(String::isBlank))
 													  .map(String::toLowerCase)
