@@ -7,7 +7,7 @@
 
 	<groupId>com.locationguru.learning</groupId>
 	<artifactId>java-concepts</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
 
 	<!-- This module will be packaged as POM -->
 	<packaging>pom</packaging>
